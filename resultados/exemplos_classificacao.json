@@ -1,0 +1,100 @@
+[
+  {
+    "texto": "Estou precisando agendar uma consulta na unidade básica de saúde.",
+    "categoria": "Escolha de profissionais de saúde",
+    "confianca": 0.5799267292022705,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.008310322649776936,
+      "Diagnóstico": 0.09526515007019043,
+      "Epidemiologia": 0.03334573656320572,
+      "Escolha de profissionais de saúde": 0.5799267292022705,
+      "Estilo de vida saudável": 0.020833196118474007,
+      "Outros": 0.22988802194595337,
+      "Tratamento": 0.03243091702461243
+    }
+  },
+  {
+    "texto": "Estou com febre, dor no corpo e tosse há dois dias. O que pode ser isso?",
+    "categoria": "Diagnóstico",
+    "confianca": 0.8748506903648376,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.016727689653635025,
+      "Diagnóstico": 0.8748506903648376,
+      "Epidemiologia": 0.01779758557677269,
+      "Escolha de profissionais de saúde": 0.04825862869620323,
+      "Estilo de vida saudável": 0.010899935849010944,
+      "Outros": 0.02161748893558979,
+      "Tratamento": 0.00984815414994955
+    }
+  },
+  {
+    "texto": "Posso tomar ibuprofeno junto com o remédio da pressão?",
+    "categoria": "Tratamento",
+    "confianca": 0.9581388235092163,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.0021945468615740538,
+      "Diagnóstico": 0.002600981155410409,
+      "Epidemiologia": 0.007832669652998447,
+      "Escolha de profissionais de saúde": 0.00789994653314352,
+      "Estilo de vida saudável": 0.013095673173666,
+      "Outros": 0.008237305097281933,
+      "Tratamento": 0.9581388235092163
+    }
+  },
+  {
+    "texto": "Meu exame de sangue deu glicose alta. Preciso repetir o exame?",
+    "categoria": "Diagnóstico",
+    "confianca": 0.8738405704498291,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.011855438351631165,
+      "Diagnóstico": 0.8738405704498291,
+      "Epidemiologia": 0.027910124510526657,
+      "Escolha de profissionais de saúde": 0.04390612617135048,
+      "Estilo de vida saudável": 0.007583587430417538,
+      "Outros": 0.02595440112054348,
+      "Tratamento": 0.008949718438088894
+    }
+  },
+  {
+    "texto": "Caminhar trinta minutos por dia ajuda a controlar a pressão arterial?",
+    "categoria": "Estilo de vida saudável",
+    "confianca": 0.9426677227020264,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.01178011018782854,
+      "Diagnóstico": 0.00497847655788064,
+      "Epidemiologia": 0.006575636100023985,
+      "Escolha de profissionais de saúde": 0.005496028810739517,
+      "Estilo de vida saudável": 0.9426677227020264,
+      "Outros": 0.00952105037868023,
+      "Tratamento": 0.018980933353304863
+    }
+  },
+  {
+    "texto": "Dor no joelho há uma semana. Devo procurar o clínico geral ou o ortopedista?",
+    "categoria": "Escolha de profissionais de saúde",
+    "confianca": 0.9632217884063721,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.0017511927289888263,
+      "Diagnóstico": 0.015603678300976753,
+      "Epidemiologia": 0.004081251565366983,
+      "Escolha de profissionais de saúde": 0.9632217884063721,
+      "Estilo de vida saudável": 0.003309081308543682,
+      "Outros": 0.003958061803132296,
+      "Tratamento": 0.008075011894106865
+    }
+  },
+  {
+    "texto": "Para que serve o hormônio da tireoide no organismo?",
+    "categoria": "Anatomia e fisiologia",
+    "confianca": 0.7981241941452026,
+    "probabilidades": {
+      "Anatomia e fisiologia": 0.7981241941452026,
+      "Diagnóstico": 0.029238073155283928,
+      "Epidemiologia": 0.04205024614930153,
+      "Escolha de profissionais de saúde": 0.014156104065477848,
+      "Estilo de vida saudável": 0.037123944610357285,
+      "Outros": 0.04625172168016434,
+      "Tratamento": 0.03305574133992195
+    }
+  }
+]

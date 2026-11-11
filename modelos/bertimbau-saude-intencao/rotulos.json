@@ -1,0 +1,22 @@
+{
+  "modelo_base": "neuralmind/bert-base-portuguese-cased",
+  "classes": [
+    "Anatomia e fisiologia",
+    "Diagnóstico",
+    "Epidemiologia",
+    "Escolha de profissionais de saúde",
+    "Estilo de vida saudável",
+    "Outros",
+    "Tratamento"
+  ],
+  "id2label": {
+    "0": "Anatomia e fisiologia",
+    "1": "Diagnóstico",
+    "2": "Epidemiologia",
+    "3": "Escolha de profissionais de saúde",
+    "4": "Estilo de vida saudável",
+    "5": "Outros",
+    "6": "Tratamento"
+  },
+  "max_length": 128
+}

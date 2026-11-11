@@ -1,0 +1,221 @@
+{
+  "execucao": {
+    "data_utc": "2026-11-11T19:13:48Z",
+    "dispositivo": "cpu",
+    "gpu": null,
+    "pytorch": "2.15.0+cpu",
+    "modelo": "neuralmind/bert-base-portuguese-cased",
+    "semente": 42,
+    "max_length": 128,
+    "tamanho_lote": 8,
+    "epocas_configuradas": 3,
+    "epocas_executadas": [
+      1,
+      2,
+      3
+    ],
+    "epoca_selecionada": 3,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "paciencia_early_stopping": 1,
+    "amostra_por_classe_limite": 400,
+    "limite_lotes": null,
+    "n_treino": 1960,
+    "n_validacao": 420,
+    "n_teste": 420
+  },
+  "base": {
+    "nome": "MedPT",
+    "huggingface": "AKCIT/MedPT",
+    "url": "https://huggingface.co/datasets/AKCIT/MedPT",
+    "n_bruto": 384095,
+    "n_apos_limpeza": 181760,
+    "n_amostra": 2800,
+    "invalidos_removidos": 0,
+    "linhas_com_rotulo_conflitante": 3,
+    "duplicatas_removidas": 202332,
+    "distribuicao_bruta": {
+      "Tratamento": 142143,
+      "Diagnóstico": 130206,
+      "Epidemiologia": 45511,
+      "Estilo de vida saudável": 21746,
+      "Outros": 19897,
+      "Escolha de profissionais de saúde": 19167,
+      "Anatomia e fisiologia": 5425
+    },
+    "distribuicao_limpa": {
+      "Tratamento": 68289,
+      "Diagnóstico": 66535,
+      "Epidemiologia": 24786,
+      "Estilo de vida saudável": 8097,
+      "Escolha de profissionais de saúde": 6097,
+      "Outros": 4982,
+      "Anatomia e fisiologia": 2974
+    },
+    "distribuicao_amostra": {
+      "Epidemiologia": 400,
+      "Diagnóstico": 400,
+      "Outros": 400,
+      "Estilo de vida saudável": 400,
+      "Escolha de profissionais de saúde": 400,
+      "Tratamento": 400,
+      "Anatomia e fisiologia": 400
+    },
+    "observacao_rotulos": "question_type foi gerado com gpt-oss-120b, segundo o card do MedPT. As perguntas são do corpus publicado; a intenção não é anotação médica humana."
+  },
+  "historico": {
+    "epoca": [
+      1,
+      2,
+      3
+    ],
+    "loss_treino": [
+      1.481171202659607,
+      0.7396362606359987,
+      0.4502094065960573
+    ],
+    "loss_validacao": [
+      1.0389318869227455,
+      0.8501939398901803,
+      0.8309571206569671
+    ]
+  },
+  "teste": {
+    "loss": 0.8221846895558493,
+    "accuracy": 0.7380952380952381,
+    "precision_macro": 0.7420216487153247,
+    "recall_macro": 0.7380952380952381,
+    "f1_macro": 0.7371579159103222,
+    "precision_weighted": 0.7420216487153246,
+    "recall_weighted": 0.7380952380952381,
+    "f1_weighted": 0.7371579159103221,
+    "loss_treino_epoca_selecionada": 0.4502094065960573,
+    "loss_validacao_epoca_selecionada": 0.8309571206569671,
+    "por_categoria": [
+      {
+        "categoria": "Anatomia e fisiologia",
+        "precision": 0.7121212121212122,
+        "recall": 0.7833333333333333,
+        "f1": 0.746031746031746,
+        "suporte": 60
+      },
+      {
+        "categoria": "Diagnóstico",
+        "precision": 0.8301886792452831,
+        "recall": 0.7333333333333333,
+        "f1": 0.7787610619469026,
+        "suporte": 60
+      },
+      {
+        "categoria": "Epidemiologia",
+        "precision": 0.7368421052631579,
+        "recall": 0.7,
+        "f1": 0.717948717948718,
+        "suporte": 60
+      },
+      {
+        "categoria": "Escolha de profissionais de saúde",
+        "precision": 0.9661016949152542,
+        "recall": 0.95,
+        "f1": 0.957983193277311,
+        "suporte": 60
+      },
+      {
+        "categoria": "Estilo de vida saudável",
+        "precision": 0.7580645161290323,
+        "recall": 0.7833333333333333,
+        "f1": 0.7704918032786885,
+        "suporte": 60
+      },
+      {
+        "categoria": "Outros",
+        "precision": 0.6041666666666666,
+        "recall": 0.48333333333333334,
+        "f1": 0.5370370370370371,
+        "suporte": 60
+      },
+      {
+        "categoria": "Tratamento",
+        "precision": 0.5866666666666667,
+        "recall": 0.7333333333333333,
+        "f1": 0.6518518518518519,
+        "suporte": 60
+      }
+    ],
+    "matriz_confusao": [
+      [
+        47,
+        3,
+        0,
+        0,
+        3,
+        2,
+        5
+      ],
+      [
+        3,
+        44,
+        4,
+        1,
+        2,
+        2,
+        4
+      ],
+      [
+        3,
+        3,
+        42,
+        1,
+        0,
+        2,
+        9
+      ],
+      [
+        0,
+        0,
+        1,
+        57,
+        0,
+        0,
+        2
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        47,
+        6,
+        5
+      ],
+      [
+        10,
+        2,
+        8,
+        0,
+        5,
+        29,
+        6
+      ],
+      [
+        2,
+        1,
+        1,
+        0,
+        5,
+        7,
+        44
+      ]
+    ],
+    "classes_na_ordem_da_matriz": [
+      "Anatomia e fisiologia",
+      "Diagnóstico",
+      "Epidemiologia",
+      "Escolha de profissionais de saúde",
+      "Estilo de vida saudável",
+      "Outros",
+      "Tratamento"
+    ],
+    "relatorio": "                                   precision    recall  f1-score   support\n\n            Anatomia e fisiologia     0.7121    0.7833    0.7460        60\n                      Diagnóstico     0.8302    0.7333    0.7788        60\n                    Epidemiologia     0.7368    0.7000    0.7179        60\nEscolha de profissionais de saúde     0.9661    0.9500    0.9580        60\n          Estilo de vida saudável     0.7581    0.7833    0.7705        60\n                           Outros     0.6042    0.4833    0.5370        60\n                       Tratamento     0.5867    0.7333    0.6519        60\n\n                         accuracy                         0.7381       420\n                        macro avg     0.7420    0.7381    0.7372       420\n                     weighted avg     0.7420    0.7381    0.7372       420\n"
+  }
+}

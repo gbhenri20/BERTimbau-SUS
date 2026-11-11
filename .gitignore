@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+.cache/
+hf-cache/
+wandb/
+agent-tools/
+
+# Pesos do BERTimbau ajustado (centenas de MB). O notebook gera estes
+# arquivos e pode copiá-los para o Google Drive. Metadados pequenos do
+# modelo, quando existirem fora destes padrões, podem ser versionados.
+modelos/**/model.safetensors
+modelos/**/pytorch_model.bin
+modelos/**/*.pt
+modelos/**/*.bin

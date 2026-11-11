@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intenção em textos de saúde · BERTimbau</title>
+  <style>
+    :root {
+      --ink: #1c2430;
+      --muted: #5c6b7a;
+      --paper: #f4f1ea;
+      --card: #fffdf8;
+      --line: #e4ddd0;
+      --teal: #0f6e6e;
+      --amber: #8a4b08;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+    header {
+      background: #123c3c;
+      color: #f7f4ee;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+    header, main { max-width: 980px; margin: 0 auto; }
+    header { max-width: none; }
+    .wrap { max-width: 980px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 0.6rem; }
+    h2 { font-size: 1.25rem; margin: 2rem 0 0.6rem; }
+    p, li { font-size: 1.02rem; }
+    .meta { color: #d5ebe8; margin: 0; }
+    .aviso {
+      background: #fff4df;
+      border: 1px solid #efd3a4;
+      color: #6a3e09;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+      margin: 1.25rem 0;
+    }
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .cartao {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .cartao span { display: block; color: var(--muted); font-size: 0.85rem; }
+    .cartao strong { font-size: 1.35rem; color: var(--teal); }
+    table { width: 100%; border-collapse: collapse; background: var(--card); }
+    th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--line); }
+    th { font-size: 0.85rem; color: var(--muted); }
+    img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; background: white; }
+    figure { margin: 1rem 0 1.5rem; }
+    figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.35rem; }
+    footer { color: var(--muted); font-size: 0.9rem; padding: 1rem 0 2.5rem; }
+    code { font-family: ui-monospace, monospace; font-size: 0.92em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="meta">Aprendizado de Máquina · DSM · 5º semestre · apresentação em 11/11/2026</p>
+      <h1>Classificação da intenção de textos de saúde com BERTimbau</h1>
+      <p>Gabriel Henrique Santana da Silva e Luiz Felipe dos Santos. Professor Bruno, sobrenome a confirmar com a turma.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="aviso">Este resultado organiza texto. Não faz diagnóstico, não indica medicamento e não substitui a equipe de uma unidade de saúde.</p>
+    <p>O programa ajusta o BERTimbau (<code>neuralmind/bert-base-portuguese-cased</code>) para separar a intenção de perguntas em português. Ele lê a planilha <code>dados/base_saude.xlsx</code>, aba <code>perguntas</code>. As linhas são perguntas reais do MedPT, não textos inventados. A execução abaixo rodou em CPU, sem GPU, em 11/11/2026, e terminou às 16:13 no horário de Brasília. Durou 17 minutos. Os números saem do conjunto de teste, com 420 perguntas que não entraram no treino.</p>
+
+    <h2>Métricas no teste</h2>
+    <div class="grade">
+      <div class="cartao"><span>Acurácia</span><strong>0,7381</strong></div>
+      <div class="cartao"><span>Precisão macro</span><strong>0,7420</strong></div>
+      <div class="cartao"><span>Revocação macro</span><strong>0,7381</strong></div>
+      <div class="cartao"><span>F1 macro</span><strong>0,7372</strong></div>
+      <div class="cartao"><span>Perda de validação</span><strong>0,8310</strong></div>
+      <div class="cartao"><span>Perda de treino</span><strong>0,4502</strong></div>
+    </div>
+    <p>Amostra de 2.800 perguntas do MedPT, 400 por classe. Divisão estratificada: 1.960 treino, 420 validação, 420 teste. Três épocas, lote 8, sequências de até 128 tokens, AdamW com taxa 2e-5. A validação melhorou nas três épocas. A de treino caiu bem mais, de 1,4812 para 0,4502, o que indica overfitting começando.</p>
+
+    <h2>F1 por categoria</h2>
+    <table>
+      <thead>
+        <tr><th>Categoria</th><th>Precisão</th><th>Revocação</th><th>F1</th><th>Suporte</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Anatomia e fisiologia</td><td>0,7121</td><td>0,7833</td><td>0,7460</td><td>60</td></tr>
+        <tr><td>Diagnóstico</td><td>0,8302</td><td>0,7333</td><td>0,7788</td><td>60</td></tr>
+        <tr><td>Epidemiologia</td><td>0,7368</td><td>0,7000</td><td>0,7179</td><td>60</td></tr>
+        <tr><td>Escolha de profissionais de saúde</td><td>0,9661</td><td>0,9500</td><td>0,9580</td><td>60</td></tr>
+        <tr><td>Estilo de vida saudável</td><td>0,7581</td><td>0,7833</td><td>0,7705</td><td>60</td></tr>
+        <tr><td>Outros</td><td>0,6042</td><td>0,4833</td><td>0,5370</td><td>60</td></tr>
+        <tr><td>Tratamento</td><td>0,5867</td><td>0,7333</td><td>0,6519</td><td>60</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Gráficos da execução</h2>
+    <figure>
+      <img src="figuras/curva_perda.png" alt="Curva da perda de treino e de validação nas três épocas">
+      <figcaption>Perda de treino e de validação. A validação desce pouco na terceira época.</figcaption>
+    </figure>
+    <figure>
+      <img src="figuras/matriz_confusao.png" alt="Matriz de confusão no conjunto de teste">
+      <figcaption>Matriz de confusão. Escolha de profissionais acerta 57 de 60. Outros acerta 29 e se espalha.</figcaption>
+    </figure>
+    <figure>
+      <img src="figuras/f1_por_categoria.png" alt="Gráfico de barras do F1 por categoria">
+      <figcaption>F1 de cada intenção no teste.</figcaption>
+    </figure>
+    <figure>
+      <img src="figuras/distribuicao_categorias.png" alt="Quantidade de perguntas por intenção depois da limpeza">
+      <figcaption>MedPT depois da limpeza: 181.760 perguntas. Tratamento e diagnóstico dominam o corpus inteiro. O treino usou uma amostra equilibrada.</figcaption>
+    </figure>
+
+    <h2>Frases de demonstração</h2>
+    <p>Estas frases foram escritas para a apresentação. Não fazem parte do teste e não entram nas métricas. A confiança é a probabilidade da classe escolhida.</p>
+    <table>
+      <thead>
+        <tr><th>Texto</th><th>Categoria</th><th>Confiança</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Estou precisando agendar uma consulta na unidade básica de saúde.</td><td>Escolha de profissionais de saúde</td><td>58%</td></tr>
+        <tr><td>Estou com febre, dor no corpo e tosse há dois dias. O que pode ser isso?</td><td>Diagnóstico</td><td>87%</td></tr>
+        <tr><td>Posso tomar ibuprofeno junto com o remédio da pressão?</td><td>Tratamento</td><td>96%</td></tr>
+        <tr><td>Meu exame de sangue deu glicose alta. Preciso repetir o exame?</td><td>Diagnóstico</td><td>87%</td></tr>
+        <tr><td>Caminhar trinta minutos por dia ajuda a controlar a pressão arterial?</td><td>Estilo de vida saudável</td><td>94%</td></tr>
+        <tr><td>Dor no joelho há uma semana. Devo procurar o clínico geral ou o ortopedista?</td><td>Escolha de profissionais de saúde</td><td>96%</td></tr>
+        <tr><td>Para que serve o hormônio da tireoide no organismo?</td><td>Anatomia e fisiologia</td><td>80%</td></tr>
+      </tbody>
+    </table>
+    <figure>
+      <img src="figuras/exemplos_probabilidades.png" alt="Probabilidades de cada categoria nos sete exemplos">
+      <figcaption>Probabilidades dos sete exemplos. O pedido de agendamento é o menos decidido, porque a base não tem uma classe só de marcação de consulta.</figcaption>
+    </figure>
+
+    <h2>Onde classificar um texto novo</h2>
+    <p>O fine-tuning e a função que recebe um texto digitado estão no notebook <code>notebooks/classificacao_saude_bertimbau.ipynb</code>, feito para o Google Colab. Com os pesos já treinados na máquina, a interface Streamlit em <code>app/demo.py</code> também classifica e guarda o histórico da sessão. Os pesos passam de 400 MB e ficam de fora do Git. Esta página mostra a execução que já aconteceu.</p>
+
+    <footer>
+      Base MedPT, Hugging Face AKCIT/MedPT. Referência de problema: Coelho, Gabriel A. Transformação digital no SUS. Mackenzie, 2025. https://dspace.mackenzie.br/handle/10899/41755. O resumo desse TCC descreve um chatbot com RAG, não o BERTimbau. Código sob licença MIT.
+    </footer>
+  </main>
+</body>
+</html>

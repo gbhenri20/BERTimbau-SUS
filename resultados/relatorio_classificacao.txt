@@ -1,0 +1,13 @@
+                                   precision    recall  f1-score   support
+
+            Anatomia e fisiologia     0.7121    0.7833    0.7460        60
+                      Diagnóstico     0.8302    0.7333    0.7788        60
+                    Epidemiologia     0.7368    0.7000    0.7179        60
+Escolha de profissionais de saúde     0.9661    0.9500    0.9580        60
+          Estilo de vida saudável     0.7581    0.7833    0.7705        60
+                           Outros     0.6042    0.4833    0.5370        60
+                       Tratamento     0.5867    0.7333    0.6519        60
+
+                         accuracy                         0.7381       420
+                        macro avg     0.7420    0.7381    0.7372       420
+                     weighted avg     0.7420    0.7381    0.7372       420
