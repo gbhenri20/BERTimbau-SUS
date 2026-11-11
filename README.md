@@ -12,7 +12,7 @@ O classificador organiza texto. Não faz diagnóstico, não indica medicamento e
 | Curso | Desenvolvimento de Software Multiplataforma (DSM) |
 | Semestre | 5º semestre |
 | Integrantes | Gabriel Henrique Santana da Silva e Luiz Felipe dos Santos |
-| Professor | Bruno (sobrenome a confirmar com a turma) |
+| Professor | Bruno Zolotareff |
 | Data da apresentação | 11/11/2026 |
 
 ## Descrição do projeto
